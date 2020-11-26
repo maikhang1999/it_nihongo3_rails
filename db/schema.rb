@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_021123) do
+ActiveRecord::Schema.define(version: 2020_11_25_022252) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_11_25_021123) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "book_reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.text "review"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "number_of_pages"
@@ -40,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_021123) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "add_detail"
     t.text "detail"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

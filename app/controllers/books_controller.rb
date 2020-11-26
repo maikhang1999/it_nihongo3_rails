@@ -10,6 +10,7 @@ before_action :authenticate_user!
   # GET /books/1
   # GET /books/1.json
   def show
+    @book_review = BookReview.new
   end
 
   # GET /books/new
